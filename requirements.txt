@@ -1,0 +1,4 @@
+PIL
+gspread
+oauth2client
+googleapiclient
