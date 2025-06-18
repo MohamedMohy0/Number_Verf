@@ -99,6 +99,8 @@ gender = st.radio("اختر النوع", options=["ذكر", "أنثى"], horizon
 
 age= st.text_input("أدخل عمرك ")
 
+Phone= st.text_input("أدخل رقم هاتفك ")
+
 id= st.text_input("أدخل رقم الهوية  ")
 
 dateofbirth = st.date_input(
@@ -137,24 +139,24 @@ if st.session_state.show_id_camera:
 
 if st.button(" إرسال البيانات"):
     if gender=="ذكر":
-        if name and age and id and face and id_photo:
+        if name and age and id and face and id_photo and Phone:
             sheet, drive_service = connect_to_services_M()
             folder_id = st.secrets["Male_Data"]["Male_Data"] 
             face_url = upload_image(face, drive_service, folder_id)
             id_url = upload_image(id_photo, drive_service, folder_id)
 
-            sheet.append_row([name, gender, age, str(dateofbirth), id, face_url, id_url])
+            sheet.append_row([name, gender, age,Phone ,str(dateofbirth), id, face_url, id_url])
             st.success(" تم إرسال البيانات بنجاح إلى Google Sheet!")
         else:
             st.error(" يرجى تعبئة جميع الحقول والتقاط الصور أولاً.")
     else:
-        if name and age and id and face and id_photo:
+        if name and age and id and face and id_photo and Phone:
             sheet, drive_service = connect_to_services_F()
             folder_id = st.secrets["Female_Data"]["Female_Data"]
             face_url = upload_image(face, drive_service, folder_id)
             id_url = upload_image(id_photo, drive_service, folder_id)
 
-            sheet.append_row([name, gender, age, str(dateofbirth), id, face_url, id_url])
+            sheet.append_row([name, gender, age, Phone,str(dateofbirth), id, face_url, id_url])
             st.success(" تم إرسال البيانات بنجاح  ")
         else:
             st.error(" يرجى تعبئة جميع الحقول والتقاط الصور أولاً.")
