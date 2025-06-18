@@ -16,7 +16,7 @@ def connect_to_services_M():
     ]
     creds = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["google"], scope)
     client = gspread.authorize(creds)
-    Male_sheet = client.open_by_key(st.secrets["Male"]).sheet1
+    Male_sheet = client.open_by_key(st.secrets["Male"]["Male"]).sheet1
     drive_service = build("drive", "v3", credentials=creds)
     return Male_sheet, drive_service
 
@@ -27,7 +27,7 @@ def connect_to_services_F():
     ]
     creds = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["google"], scope)
     client = gspread.authorize(creds)
-    Female_sheet=client.open_by_key(st.secrets["Female"]).sheet1
+    Female_sheet=client.open_by_key(st.secrets["Female"]["Female"]).sheet1
 
     drive_service = build("drive", "v3", credentials=creds)
     return Female_sheet, drive_service
@@ -134,7 +134,7 @@ if st.button(" إرسال البيانات"):
     if gender=="ذكر":
         if name and age and id and face and id_photo:
             sheet, drive_service = connect_to_services_M()
-            folder_id = st.secrets["Male_Data"]  
+            folder_id = st.secrets["Male_Data"]["Male_Data"] 
             face_url = upload_image(face, drive_service, folder_id)
             id_url = upload_image(id_photo, drive_service, folder_id)
 
@@ -145,7 +145,7 @@ if st.button(" إرسال البيانات"):
     else:
         if name and age and id and face and id_photo:
             sheet, drive_service = connect_to_services_F()
-            folder_id = st.secrets["Female_Data"]  
+            folder_id = st.secrets["Female_Data"]["Female_Data"]
             face_url = upload_image(face, drive_service, folder_id)
             id_url = upload_image(id_photo, drive_service, folder_id)
 
