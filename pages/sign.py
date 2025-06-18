@@ -101,7 +101,12 @@ age= st.text_input("أدخل عمرك ")
 
 id= st.text_input("أدخل رقم الهوية  ")
 
-dateofbirth= st.date_input("أدخل تاريخ الميلاد ", date.today())
+dateofbirth = st.date_input(
+    "أدخل تاريخ الميلاد",
+    value=date.today(),
+    min_value=date(1900, 1, 1),  # or any past date you want
+    max_value=date.today()
+)
 
 if "show_face_camera" not in st.session_state:
     st.session_state.show_face_camera = False
