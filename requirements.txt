@@ -1,4 +1,4 @@
-PIL
+pillow
 gspread
 oauth2client
 googleapiclient
