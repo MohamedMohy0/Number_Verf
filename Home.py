@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="توثيق الأرقام", layout="centered")
+st.set_page_config(page_title="وثقها", layout="centered")
 hide_sidebar = """
     <style>
         [data-testid="stSidebar"] {
@@ -41,7 +41,7 @@ st.markdown(
 st.markdown("<div style='height:15vh'></div>", unsafe_allow_html=True)
 
 # Title centered
-st.markdown("<h1 style='text-align: center;'>توثيق الأرقام</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'> وثقها</h1>", unsafe_allow_html=True)
 
 # Center buttons using columns
 st.markdown("<div style='display: flex; justify-content: center;'>", unsafe_allow_html=True)
