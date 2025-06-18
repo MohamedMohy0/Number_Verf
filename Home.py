@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="وثقها", layout="centered",page_icon="logo.jpg")
+st.set_page_config(page_title="وثقها", layout="centered",page_icon="logoo.png")
 hide_sidebar = """
     <style>
         [data-testid="stSidebar"] {
@@ -38,7 +38,7 @@ st.markdown(
 )
 col1, col2, col3 = st.columns([2, 3, 2])
 with col2:
-    st.image("logo.jpg", width=120 )
+    st.image("logoo.png", width=120 )
     st.write("الموقع مدعوم بالكامل من قبل فريق UFRC")
 
 st.markdown("<div style='height:15vh'></div>", unsafe_allow_html=True)
