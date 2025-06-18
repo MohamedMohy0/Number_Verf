@@ -150,6 +150,6 @@ if st.button(" إرسال البيانات"):
             id_url = upload_image(id_photo, drive_service, folder_id)
 
             sheet.append_row([name, gender, age, str(dateofbirth), id, face_url, id_url])
-            st.success(" تم إرسال البيانات بنجاح إلى Google Sheet!")
+            st.success(" تم إرسال البيانات بنجاح  ")
         else:
             st.error(" يرجى تعبئة جميع الحقول والتقاط الصور أولاً.")
