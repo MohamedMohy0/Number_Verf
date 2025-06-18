@@ -36,7 +36,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-col1, col2, col3 = st.columns([2, 3, 2])
+col1, col2, col3 = st.columns([5, 3, 5])
 with col2:
     st.image("logo.jpg", width=120 )
     st.write("الموقع مدعوم بالكامل من قبل فريق UFRC")
