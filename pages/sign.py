@@ -142,21 +142,27 @@ if st.button(" إرسال البيانات"):
         if name and age and id and face and id_photo and Phone:
             sheet, drive_service = connect_to_services_M()
             folder_id = st.secrets["Male_Data"]["Male_Data"] 
-            face_url = upload_image(face, drive_service, folder_id)
-            id_url = upload_image(id_photo, drive_service, folder_id)
-
-            sheet.append_row([name, gender, age,Phone ,str(dateofbirth), id, face_url, id_url])
-            st.success(" تم إرسال البيانات بنجاح إلى Google Sheet!")
+            id_column= sheet.col_values(6)
+            if id in id_column:
+                st.error("رقم الهوية هذا مسجل بالفعل لا يمكنك التسجيل مرة أخري")
+            else:
+                face_url = upload_image(face, drive_service, folder_id)
+                id_url = upload_image(id_photo, drive_service, folder_id)
+                sheet.append_row([name, gender, age,Phone ,str(dateofbirth), id, face_url, id_url])
+                st.success(" تم إرسال البيانات بنجاح إلى Google Sheet!")
         else:
             st.error(" يرجى تعبئة جميع الحقول والتقاط الصور أولاً.")
     else:
         if name and age and id and face and id_photo and Phone:
             sheet, drive_service = connect_to_services_F()
             folder_id = st.secrets["Female_Data"]["Female_Data"]
-            face_url = upload_image(face, drive_service, folder_id)
-            id_url = upload_image(id_photo, drive_service, folder_id)
-
-            sheet.append_row([name, gender, age, Phone,str(dateofbirth), id, face_url, id_url])
-            st.success(" تم إرسال البيانات بنجاح  ")
+            id_column= sheet.col_values(6)
+            if id in id_column:
+                st.error("رقم الهوية هذا مسجل بالفعل لا يمكنك التسجيل مرة أخري")
+            else:
+                face_url = upload_image(face, drive_service, folder_id)
+                id_url = upload_image(id_photo, drive_service, folder_id)
+                sheet.append_row([name, gender, age, Phone,str(dateofbirth), id, face_url, id_url])
+                st.success(" تم إرسال البيانات بنجاح  ")
         else:
             st.error(" يرجى تعبئة جميع الحقول والتقاط الصور أولاً.")
