@@ -58,7 +58,7 @@ def connect_to_sheet():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     creds = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["google"], scope)
     client = gspread.authorize(creds)
-    sheet_id = st.secrets["Verf"]
+    sheet_id = st.secrets["Verf"]["Verf"]
     sheet = client.open_by_key(sheet_id).sheet1
     return sheet
 
